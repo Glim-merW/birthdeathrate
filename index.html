@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+
+    <!-- CSS file -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url('image/img.png');
+            /*background-size: cover; !* 可以使用 'contain' 以保持图像比例 *!*/
+        }
+
+        p {
+            display: inline-block;
+            margin-left: 25px;
+            margin-right: 10px;
+            text-indent: 32px;
+            line-height: 50px;
+            margin-top: 10px;
+            padding:20px 0;
+            /*font-size: 50px;*/
+        }
+
+        div {
+            margin-top: 50px;
+            align-items: center;
+        }
+        h3 {
+            margin-top: 60px;
+
+        }
+
+
+
+    </style>
+
+
+</head>
+
+<body>
+<div class="main ">
+    <h2 class='text-center'>Population growth, is there an end for Mother Earth?</h2>
+    <h3 class='text-center'>Introduction</h3>
+    <p>
+        Population growth is an enduring concern that people have been worried about since the 18th century since
+        industrial
+        revolution, constantly questioning the Earth's carrying capacity. This pressing issue has prompted ongoing
+        discussions
+        and efforts to address its implications on various aspects of our world.
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The increase in the global population has raised important questions about resource availability,
+        environmental sustainability, and the quality of life for future generations. It has led to debates
+        on issues such as food security, access to clean water, healthcare, and economic stability.
+        As we move forward in the 21st century, managing population growth while ensuring a high standard of living for
+        all remains a challenge that requires innovative solutions and international cooperation. Sustainable
+        development,
+        responsible family planning, and equitable resource distribution are key factors in shaping our future in a
+        world with finite resources.
+    </p>
+
+    <h3 class='text-center'>World's population growth(per 1000) by countries(2021)</h3>
+    <div class="row">
+        <div class="col choropleth_map" id="world">
+        </div>
+        <div class="col">
+            <p>
+                &nbsp;&nbsp;From this 2021 population growth choropleth map, it's evident that a considerable portion of
+                Europe,
+                East Asia, and North America is experiencing population growth stagnation or even decline. Meanwhile,
+                the primary regions experiencing significant population growth are in Africa,
+                select landlocked Asian countries, and Southeast Asia. The following bubble plot,
+                equipped with filtering capabilities, offers a valuable tool to enhance our
+                understanding of population growth rates across various continents and different growth rates.
+            </p>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col choropleth_map" id="filter">
+        </div>
+        <h3 class='text-center' style="margin-top: 130px">Proportion of countries with positive population growth in 2021</h3>
+
+        <div class="row">
+            <div class="col choropleth_map" id="growth_category">
+            </div>
+            <div class="col">
+
+                <p>
+                    &nbsp;&nbsp;The pie chart on the left and the bubble chart above reveal that there are certain
+                    countries where the death
+                    rate is even higher than the birth rate, leading to 51 countries experiencing population decline in
+                    2021.
+                    By examining the colors corresponding to continents in the above chart, we can observe a certain
+                    trend
+                    between population growth and geographical location. It appears that birth rates in Europe are
+                    generally lower, while birth rates in Africa are generally higher, with the Americas and Asia
+                    falling
+                    in between. Is this indeed the case? The bar chart below, focusing on continent-specific growth
+                    rates,
+                    can help us confirm our findings.
+                </p>
+
+            </div>
+        </div>
+        <h3 class='text-center'>Population growth by different continents(2021)</h3>
+
+        <div class="row">
+            <div class="col choropleth_map" id="average_growth">
+            </div>
+            <div class="col">
+
+                <p>
+                    &nbsp;&nbsp;From the bar chart on the left, it does indeed appear that Africa's growth rate is
+                    significantly higher than the other continents, almost surpassing Europe's rate by
+                    a factor of 20. Is this a unique occurrence for 2021, or has this trend persisted over time?
+                    We can create a line chart using data from 1950 to 2021 to compare the population growth rates
+                    of different continents and examine the relationships.
+                </p>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col choropleth_map" id="country">
+
+            </div>
+            <div class="col choropleth_map" id="Income_Level">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h3 class='text-center'>Growth by continent from 1950 to 2021</h3>
+                <p>
+                    &nbsp;&nbsp;Looking at the data for the past nearly 70 years across various continents, it becomes
+                    apparent that in
+                    1950, population growth rates across continents were mostly within
+                    the range of 10% to 20%. Interestingly, Latin America had a higher population
+                    growth rate than Africa at that time. However, with the exception of Africa, all continents
+                    experienced
+                    a decline in their growth rates between 1960 and 1965, which has continued until today. Europe and
+                    the
+                    Americas have the lowest growth rates.
+                    &nbsp;&nbsp;There are various theories surrounding the reasons for low population growth rates, and
+                    one hypothesis
+                    suggests a negative correlation between regional income levels and population growth rates.
+                    It posits that areas with higher income levels tend to have lower population growth rates.
+                    Is this really the case?</p>
+            </div>
+            <div class="col">
+                <h3 class='text-center'>Growth by income level from 1950 to 2021</h3>
+                <p>
+                    &nbsp;&nbsp;This chart clearly illustrates the correlation between population growth and income
+                    levels. In 2021, high-income countries had a population growth rate of -0.093, indicating negative
+                    growth has already begun. Middle-high income countries and middle-low income countries also showed
+                    declining growth rates. Only low-income countries maintained a relatively high growth rate of around
+                    27%. This pattern might be related to the intense economic pressures in non-low income countries,
+                    where young people often struggle to afford housing.
+                    Interestingly, 2021 was a year marked by the widespread transmission of the COVID-19 virus, and
+                    countries with high population density experienced a significant number of deaths. This seems
+                    to be closely related to the sudden decline observed since 2020.
+                </p>
+            </div>
+        </div>
+
+        <div style="margin-top: 140px;">
+
+            <p>&nbsp;&nbsp;On November 15, 2022, the world's population reached 8 billion, which is a milestone
+                in human development. It took 12 years for the global population to grow from 7 billion to 8 billion,
+                and about 15 years (by 2037) from 8 billion to 9 billion, indicating that the overall growth rate of
+                the global population is slowing down. However, some countries still have high fertility rates.
+                Countries
+                with the highest fertility rates tend to be those with the lowest per capita income. As a result, over
+                time, global population growth will become increasingly concentrated in the world's poorest countries,
+                most of which are in sub-Saharan Africa.
+                &nbsp;&nbsp;Anthropologists predict that the world's population will reach 8.5 billion by 2030, and will
+                continue
+                to grow thereafter, reaching 9.7 billion in 2050 and 10.4 billion by 2100.
+                Can the earth really support the living needs of 10 billion people? I have my doubts.
+            </p>
+            <p style="color:rgb(112,112,116);">For more data, please visit <a href="https://ourworldindata.org/grapher/birth-rate-vs-death-rate?tab=table&time=earliest..latest">Our world data</a>
+            </p>
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+<script type="text/javascript">
+
+    var world = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "title": "Growth rate of different countries in 2021",
+        "width": 800,
+        "height": 300,
+        "projection": {"type": "equalEarth"},
+        "data": {
+            "url": "https://raw.githubusercontent.com/Glim-merW/birthdeathrate/main/js/ne_110m.json",
+            "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+        },
+        "transform": [
+            {
+                "lookup": "properties.NAME",
+                "from": {
+                    "data": {
+                        "url": "https://raw.githubusercontent.com/Glim-merW/birthdeathrate/main/data/birthdeath.csv"
+                    },
+                    "key": "country",
+                    "fields": ["difference"]
+                }
+            }
+        ],
+        "mark": {"type": "geoshape"},
+        "encoding": {
+            "color": {
+                "field": "difference",
+                "type": "quantitative",
+                "title": "Growth per 1000 people",
+                "scale": {
+                    "type": "threshold",
+                    "domain": [-10, -5, 0, 5, 10, 15, 20, 25],
+                    "range": ["#488f31", "#75a760", "#9fc08f", "#c8d8bf", "#f1f1f1", "#f1c6c6", "#ec9c9d", "#e27076", "#de425b"]
+                }
+            },
+            "tooltip": [
+                {"field": "properties.NAME", "type": "nominal", "title": "Country"},
+                {"field": "difference", "type": "quantitative", "title": "GrowthRate"}
+            ]
+        }
+    }
+
+    var filter = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "width": 800,
+        "height": 450,
+        "title": "Birth Rate vs Mortality Rate(2021)",
+        "data": {
+            "url": "https://raw.githubusercontent.com/Glim-merW/birthdeathrate/main/data/birthdeath.csv"
+        },
+        "params": [
+            {
+                "name": "Continent_selection",
+                "bind": {
+                    "input": "select",
+                    "options": [
+                        null,
+                        "North America",
+                        "South America",
+                        "Europe",
+                        "Africa",
+                        "Asia",
+                        "Oceania"
+                    ],
+                    "labels": [
+                        "Show All",
+                        "North America",
+                        "South America",
+                        "Europe",
+                        "Africa",
+                        "Asia",
+                        "Oceania"
+                    ],
+                    "name": "Continent Selection"
+                }
+            },
+            {
+                "name": "Minimum_Population_Growth",
+                "value": -20,
+                "bind": {
+                    "input": "range",
+                    "min": -20,
+                    "max": 40,
+                    "step": 2,
+                    "name": "Minimum Population Growth"
+                }
+            }
+        ],
+        "transform": [
+            {"filter": "datum.year == 2021"},
+            {
+                "filter": "Continent_selection == null || datum.continent == Continent_selection"
+            },
+            {"filter": "datum.difference > Minimum_Population_Growth"}
+        ],
+        "encoding": {
+            "x": {
+                "field": "birthrate",
+                "type": "quantitative",
+                "title": "Birth Rate"
+            },
+            "y": {
+                "field": "deathrate",
+                "type": "quantitative",
+                "title": "Mortality Rate"
+            }
+        },
+        "layer": [
+            {
+                "mark": "circle",
+                "encoding": {
+                    "size": {
+                        "field": "population",
+                        "type": "quantitative",
+                        "scale": {
+                            "type": "threshold",
+                            "domain": [1000000, 10000000, 50000000, 100000000, 500000000],
+                            "range": [10, 50, 150, 200, 300, 400]
+                        },
+                        "legend": {"format": ".1s"}
+                    },
+                    "color": {
+                        "field": "continent",
+                        "type": "nominal",
+                        "title": "Continent",
+                        "scale": {
+                            "domain": [
+                                "North America",
+                                "South America",
+                                "Europe",
+                                "Africa",
+                                "Asia",
+                                "Oceania"
+                            ],
+                            "range": [
+                                "#e41a1c",
+                                "#984ea3",
+                                "#ff7f00",
+                                "#a6cee3",
+                                "#377eb8",
+                                "#a65628"
+                            ]
+                        }
+                    },
+                    "opacity": {"value": 0.6},
+                    "tooltip": [
+                        {"field": "country", "type": "nominal", "title": "Country"},
+                        {"field": "birthrate", "type": "quantitative", "title": "Birth Rate"},
+                        {"field": "deathrate", "type": "quantitative", "title": "Mortality Rate"},
+                        {"field": "population", "type": "quantitative", "title": "Population"},
+                        {"field": "continent", "type": "nominal", "title": "Continent"}
+                    ]
+                }
+            },
+            {
+                "mark": {
+                    "type": "text",
+                    "align": "right",
+                    "baseline": "middle",
+                    "dx": -12,
+                    "fontSize": 11.5,
+                    "fontStyle": "italic"
+                },
+                "encoding": {
+                    "text": {"field": "country", "type": "nominal"},
+                    "color": {"value": "black"},
+                    "opacity": {
+                        "condition": {
+                            "test": "datum['country'] == 'China' || datum['country'] == 'Brazil' || datum['country'] == 'Australia' || datum['country'] == 'Bulgaria' || datum['country'] == 'Chad' || datum['country'] == 'United States of America'",
+                            "value": 1
+                        },
+                        "value": 0
+                    },
+                    "tooltip": [
+                        {"field": "country", "type": "nominal", "title": "Country"},
+                        {"field": "birthrate", "type": "quantitative", "title": "Birth Rate"},
+                        {"field": "deathrate", "type": "quantitative", "title": "Mortality Rate"},
+                        {"field": "population", "type": "quantitative", "title": "Population"},
+                        {"field": "continent", "type": "nominal", "title": "Continent"}
+                    ]
+                }
+            }
+        ]
+    }
+
+    var growth_category = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "width": 400,
+        "height": 600,
+        "title": "Population Growth in 2021",
+        "data": {
+            "url": "https://raw.githubusercontent.com/Glim-merW/birthdeathrate/main/data/birthdeath.csv"
+        },
+        "transform": [
+            {"filter": "datum.year == 2021"},
+            {
+                "calculate": "datum.difference > 0 ? 'Positive' : 'Negative'",
+                "as": "growth_category"
+            },
+            {
+                "aggregate": [{"op": "count", "field": "growth_category", "as": "count"}],
+                "groupby": ["growth_category"]
+            }
+        ],
+        "mark": "arc",
+        "encoding": {
+            "theta": {"field": "count", "type": "quantitative"},
+            "color": {
+                "field": "growth_category",
+                "type": "nominal",
+                "scale": {"range": ["#1f77b4", "#d62728"]},
+                "legend": {"title": "Growth Category"}
+            },
+            "tooltip": [
+                {"field": "growth_category", "type": "nominal", "title": "Category"},
+                {"field": "count", "type": "quantitative", "title": "Count"}
+            ]
+        }
+    }
+
+
+    var Income_Level = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "width": 800,
+            "height": 400,
+            "title": "Population Growth(per 1000) Over the Years by Income Level",
+            "data": {
+                "url": "https://raw.githubusercontent.com/Glim-merW/birthdeathrate/main/data/birthdeath.csv"
+            },
+            "params": [
+                {
+                    "name": "Income_Level",
+                    "bind": {
+                        "input": "select",
+                        "options": [
+                            null,
+                            "Low-income countries",
+                            "Lower-middle-income countries",
+                            "Upper-middle-income countries",
+                            "High-income countries"
+                        ],
+                        "labels": [
+                            "Show All",
+                            "Low-income countries",
+                            "Lower-middle-income countries",
+                            "Upper-middle-income countries",
+                            "High-income countries"
+                        ],
+                        "name": "Income Level"
+                    }
+                }
+            ],
+            "transform": [
+                {
+                    "filter": "Income_Level == null || datum.country == Income_Level"
+                },
+                {
+                    "filter": {
+                        "field": "country",
+                        "oneOf": ["Low-income countries",
+                            "Lower-middle-income countries",
+                            "Upper-middle-income countries",
+                            "High-income countries"]
+                    }
+                }
+            ],
+            "mark": "line",
+            "encoding": {
+                "x": {
+                    "field": "year",
+                    "type": "quantitative",
+                    "title": "Year"
+                },
+                "y": {
+                    "field": "difference",
+                    "type": "quantitative",
+                    "title": "Population Growth(per 1000)"
+                },
+                "color": {
+                    "field": "country",
+                    "type": "nominal",
+                    "title": "Country"
+                },
+                "tooltip": [
+                    {"field": "difference", "type": "quantitative", "title": "Population Growth"},
+                    {"field": "birthrate", "type": "quantitative", "title": "Birth Rate"},
+                    {"field": "deathrate", "type": "quantitative", "title": "Mortality Rate"}
+                ]
+            }
+        }
+    ;
+
+    var average_growth = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "width": 600,
+        "height": 400,
+        "title": "Average Growth(per 1000) by Continent(2021)",
+        "data": {
+            "url": "https://raw.githubusercontent.com/Glim-merW/birthdeathrate/main/data/birthdeath.csv"
+        },
+        "transform": [
+            {"filter": "datum.year == 2021"},
+            {
+                "calculate": "datum.difference > 0 ? 'Positive' : 'Negative'",
+                "as": "growth_category"
+            },
+            {
+                "filter": "datum.growth_category == 'Positive'"
+            },
+            {
+                "aggregate": [{"op": "mean", "field": "difference", "as": "average_growth"}],
+                "groupby": ["continent"]
+            }
+        ],
+        "mark": {
+            "type": "bar",
+            "tooltip": true
+        },
+        "encoding": {
+            "color": {
+                "field": "continent",
+                "type": "nominal",
+                "title": "Continent",
+                "scale": {
+                    "domain": [
+                        "North America",
+                        "South America",
+                        "Europe",
+                        "Africa",
+                        "Asia",
+                        "Oceania"
+                    ],
+                    "range": [
+                        "#e41a1c",
+                        "#984ea3",
+                        "#ff7f00",
+                        "#a6cee3",
+                        "#377eb8",
+                        "#a65628"
+                    ]
+                }
+            },
+            "x": {
+                "field": "continent",
+                "type": "nominal",
+                "title": "Continent"
+            },
+            "y": {
+                "field": "average_growth",
+                "type": "quantitative",
+                "title": "Average Growth",
+                "axis": {
+                    "format": ".2f"
+                }
+            }
+        }
+    }
+
+    var country = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "width": 800,
+        "height": 666,
+        "title": "Population Growth(per 1000) Over the Years for Different Continents",
+        "data": {
+            "url": "https://raw.githubusercontent.com/Glim-merW/birthdeathrate/main/data/birthdeath.csv"
+        },
+        "transform": [
+            {
+                "filter": {
+                    "field": "country",
+                    "oneOf": [
+                        "Africa",
+                        "Asia",
+                        "Europe",
+                        "North America",
+                        "South America",
+                        "Oceania",
+                        "World"
+                    ]
+                }
+            }
+        ],
+        "mark": "line",
+        "encoding": {
+            "x": {
+                "field": "year",
+                "type": "quantitative",
+                "title": "Year",
+                "axis": {"tickCount": 15}
+            },
+            "y": {
+                "field": "difference",
+                "type": "quantitative",
+                "title": "Growth Rate"
+            },
+            "color": {
+                "field": "country",
+                "type": "nominal",
+                "title": "Continent",
+                "scale": {
+                    "domain": [
+                        "North America",
+                        "South America",
+                        "Europe",
+                        "Africa",
+                        "Asia",
+                        "Oceania",
+                        "World"
+                    ],
+                    "range": [
+                        "#e41a1c",
+                        "#984ea3",
+                        "#ff7f00",
+                        "#a6cee3",
+                        "#377eb8",
+                        "#a65628",
+                        "#000000"
+                    ]
+                }
+            },
+            "tooltip": [
+                {
+                    "field": "difference",
+                    "type": "quantitative",
+                    "title": "Population Growth"
+                },
+                {
+                    "field": "birthrate",
+                    "type": "quantitative",
+                    "title": "Birth Rate"
+                },
+                {
+                    "field": "deathrate",
+                    "type": "quantitative",
+                    "title": "Mortality Rate"
+                }
+            ]
+        }
+    }
+
+    // Embed the updated spec into the #choropleth_map element
+    vegaEmbed('#world', world).then(function (result) {
+    }).catch(console.error);
+
+    // Embed the updated spec into the #choropleth_map element
+    vegaEmbed('#filter', filter).then(function (result) {
+    }).catch(console.error);
+
+    // Embed the updated spec into the #choropleth_map element
+    vegaEmbed('#growth_category', growth_category).then(function (result) {
+    }).catch(console.error);
+
+    // Embed the updated spec into the #choropleth_map element
+    vegaEmbed('#average_growth', average_growth).then(function (result) {
+    }).catch(console.error);
+
+    // Embed the updated spec into the #choropleth_map element
+    vegaEmbed('#country', country).then(function (result) {
+    }).catch(console.error);
+
+
+    // Embed the updated spec into the #choropleth_map element
+    vegaEmbed('#Income_Level', Income_Level).then(function (result) {
+    }).catch(console.error);
+
+
+</script>
+
+</body>
+
+</html>
